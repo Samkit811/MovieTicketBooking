@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Movie {
     private Integer id;
     private String name;
@@ -31,7 +33,21 @@ public class Movie {
         return bookedSeat;
     }
 
-    public void updateBookedSeat() {
-        this.bookedSeat++;
+    public void updateBookedSeat(Integer noOfSeats) {
+        this.bookedSeat+=noOfSeats;
+    }
+
+    public Boolean bookSeat(Integer noOfSeats){
+        if(Objects.equals(this.bookedSeat, this.capacity)){
+            System.out.println("Show is Full");
+            return false;
+        }
+        if(this.bookedSeat + noOfSeats > this.capacity){
+            System.out.println("Not Able to book " + noOfSeats + " seats");
+            return true;
+        }
+        System.out.println("Congratulations, You have booked " + noOfSeats + " seats in Movie: " + this.name);
+        this.updateBookedSeat(noOfSeats);
+        return true;
     }
 }
