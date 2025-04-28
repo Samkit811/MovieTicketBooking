@@ -9,5 +9,11 @@ public class Seat {
         this.show = show;
     }
 
+    public Person getPerson() {
+        return person;
+    }
 
+    public Show getShow() {
+        return show;
+    }
 }
