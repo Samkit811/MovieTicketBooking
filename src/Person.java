@@ -27,7 +27,7 @@ public class Person {
     public void showBookingList(){
         System.out.println("Booking list for the person: " + this.name);
         for(Booking booking: this.bookingList){
-            System.out.println("Movie Name: " + booking.getSeat().getShow().getMovie());
+            System.out.println("Movie Name: " + booking.getSeat().getShow().getMovie().getName());
             System.out.println("Movie Time: " + booking.getSeat().getShow().getLocalDateTime());
             System.out.println("No of seat booked: " + booking.getNoOfSeat());
         }
