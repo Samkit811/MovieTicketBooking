@@ -44,7 +44,7 @@ public class Movie {
         }
         if(this.bookedSeat + noOfSeats > this.capacity){
             System.out.println("Not Able to book " + noOfSeats + " seats");
-            return true;
+            return false;
         }
         System.out.println("Congratulations, You have booked " + noOfSeats + " seats in Movie: " + this.name);
         this.updateBookedSeat(noOfSeats);
