@@ -1,10 +1,8 @@
 public class Seat {
     private Person person;
-    private Integer id;
     private Show show;
 
-    public Seat(Person person, Integer id, Show show){
-        this.id = id;
+    public Seat(Person person, Show show){
         this.person = person;
         this.show = show;
     }
