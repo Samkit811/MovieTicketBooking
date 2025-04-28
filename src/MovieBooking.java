@@ -46,6 +46,7 @@ public class MovieBooking {
             Booking booking = new Booking(seat, noOfTicket);
             person.addBooking(booking);
             System.out.println("Thanks for Purchase.");
+            person.showBookingList();
         }
     }
 }
