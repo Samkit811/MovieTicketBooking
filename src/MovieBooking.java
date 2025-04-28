@@ -24,10 +24,10 @@ public class MovieBooking {
         return shows;
     }
 
-    private Movie findMovie(List<Show> shows, String movieName){
+    private Show findShow(List<Show> shows, String movieName){
         for(Show show: shows){
             if(show.getMovie().getName().equalsIgnoreCase(movieName)){
-                return show.getMovie();
+                return show;
             }
         }
         return null;
@@ -37,10 +37,14 @@ public class MovieBooking {
         return movie.bookSeat(noOfTickets);
     }
 
-    public void bookTicket(LocalDateTime localDateTime, String movieName, Integer noOfTicket){
+    public void bookTicket(LocalDateTime localDateTime, String movieName, Integer noOfTicket, Person person){
         List<Show> shows = this.viewShowList(localDateTime);
-        Movie movie = this.findMovie(shows, movieName);
+        Show show = this.findShow(shows, movieName);
+        Movie movie = show.getMovie();
         if(this.bookMovieTicket(movie, noOfTicket)){
+            Seat seat = new Seat(person, show);
+            Booking booking = new Booking(seat, noOfTicket);
+            person.addBooking(booking);
             System.out.println("Thanks for Purchase.");
         }
     }
