@@ -13,4 +13,7 @@ public class Show {
         return movie;
     }
 
+    public LocalDateTime getLocalDateTime() {
+        return localDateTime;
+    }
 }
